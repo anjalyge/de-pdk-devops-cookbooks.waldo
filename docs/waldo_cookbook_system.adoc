@@ -1,0 +1,103 @@
+= Waldo Cookbook System
+Anjaly George <anjaly.george@intel.com>
+:toc:
+:icons: font
+:numbered:
+:source-highlighter: rouge
+:language: en
+
+== Introduction
+The Waldo Cookbook system is a set of predefined scripts, configurations and instructions for Waldo users and developers to use Waldo Infrastructure to its full potential. The Waldo Cookbook follows the structure of Waldo repo for users to easily navigate around the repo. Each recipe will be added in a Jupyter notebook
+
+== Waldo Cookbook Flowchart
+ifdef::env-github[[source,mermaid]]
+ifndef::env-github[[mermaid]]
+----
+graph TD
+   develop[Develop test cases based on latest Waldo code]
+   validate[Validate the recipes]
+   tag[Create tags corresponding to Waldo version]
+   release[Release with Waldo]
+   gen_html[Generate the html page for the cookbook recipes]
+   develop --> validate
+   validate --> tag
+   tag --> release
+   release --> gen_html
+   gen_html --> develop
+----
+
+== Purpose of Waldo Cookbook
+* Provide a consistent user experience: The users will have a consistent user experience on how to use Waldo Infrastructure. Tagging the Waldo Cookbook system against each Waldo release will keep the user experience consistent. 
+* Ease of use for users: The user will not have to setup the environment and can easily copy the code snippet. Make small modifications of code snippet to understand the working
+* Reliability and Quality: The Cookbook will be updated and validated against each new Waldo release. The user will have a reliable place to look for examples and use cases of Waldo Infrastructure.
+* Rapid Development: New features, bug fixes can be delivered to customers alongside the Waldo release
+* Reduce Developer Effort: Having a cookbook system reduces the developer effort in training the customers, and reduce the consultation bugs
+
+== Should Waldo Cookbook be made a separate repo?
+
+=== Pros of having Waldo Cookbook as a separate repo
+* Modularity: Separating the cookbook from the Waldo repo, keeps each component focused on its own purpose
+* Independent Updates: Can make independent updates (though ideally should be aligned with Waldo releases)
+* Flexibility: Gives the customers more flexibility to clone and play with the code snippets in the Jupyter notebook
+* Maintainability: The repo will be more easier to maintain
+* Lightweight: Both the repos will be more lightweight when kept separate
+
+=== Pros of having Waldo Cookbook alongside Waldo repo
+* Consistency: The code and releases process remains more consistent with Waldo
+* Ease of discovery: Customers do not need to clone and use an additional repo 
+
+== Recipe Format
+Each recipe follows the following format
+
+* A brief introduction to the recipe explaining the problem it solves
+* List any prerequisites for using the recipe
+* Provide the code snippet and expected outcome
+* Explain the code snippet and the expected outcome
+* Validate the outcome
+
+== Development RoadMap
+ifdef::env-github[[source,mermaid]]
+ifndef::env-github[[mermaid]]
+----
+graph TD
+   approve_specs[Create and get the specs approved]
+   create_repo[Create repo for cookbook]
+   develop[Develop test cases based on latest Waldo code]
+   validate[Validate the recipes]
+   tag[Create tags corresponding to Waldo version]
+   release[Release with Waldo v0.27.0]
+   gen_html[Generate html page for EOU]
+   approve_specs --> create_repo
+   create_repo --> develop
+   develop --> validate
+   validate --> tag
+   tag --> release
+   release --> gen_html
+----
+
+=== Development Timeline
+
+* Q3
+
+** Complete knowledge transfer from Steven
+** Create proposal for Waldo Cookbook System
+** Create and setup Waldo Cookbook Repo
+** Create the configuration for the repo and skeletal structure for waldo cookbook
+** Complete adding/driving to add 15 recipes to Waldo Cookbook System
+** Deploy Waldo Cookbook System
+
+* Q4
+
+** Continue adding recipes
+** Develop html page for Waldo Cookbook repo
+
+=== Development Guidelines
+
+* No mocking in the code repo, the recipes should contain actual steps
+* The repo's main branch will be protected, developers can commit code with one approving review
+
+=== Enhancements
+
+* Implement Github actions to validate the test cases in the code repo
+* Implement Pylint validation for the repo using nbQA
+* Generate html page for the code repo
