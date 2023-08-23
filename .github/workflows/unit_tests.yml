@@ -21,4 +21,4 @@ jobs:
     - name: Run unit tests with tox
       run: |
         mkdir -p nblogs
-        wash -n users soc adg ciaf f1222 p1222 p1274 f1275 f1276 p1276 p1278 p1280 cdmgtools i1278 -c "/nfs/site/disks/de_pdk_automation_disk001/shared/bin/tox -e gh_unittest -r"
+        /nfs/site/disks/de_pdk_automation_disk001/shared/bin/tox -e gh_unittest -r
