@@ -1,0 +1,142 @@
+= Waldo Cookbook Usecases
+Anjaly George <anjaly.george@intel.com>
+:toc:
+:icons: font
+:numbered:
+:source-highlighter: rouge
+:language: en
+
+The document specifies several use cases for Waldo Cookbook System
+
+
+== New recipes as a part of Waldo code update / Adding new recipes without a customer request
+
+When the developers add new recipes to the waldo cookbook based on Waldo code without the explicit user request
+
+ifdef::env-github[[source,mermaid]]
+ifndef::env-github[[mermaid]]
+----
+graph TD
+   clone_repo[Clone the latest code from main]
+   feature_branch[Create a feature branch from main]
+   develop[Develop test cases based on latest Waldo code]
+   validate[Validate the recipes]
+   merge[Merge the feature branch to main]
+   release[Release with next Waldo release]
+   gen_html[Generate html page for EOU]
+   clone_repo --> feature_branch
+   feature_branch --> develop
+   develop --> validate
+   validate --> merge
+   merge --> release
+   release --> gen_html
+----
+
+== Recipe based on user request (HSD/ Waldo Office hours/ IM)
+
+When the developers add a test case based on an explicit request from a user
+
+=== Recipe request for an older Waldo version
+
+This is the case when a user using an older version request for a recipe
+
+==== Recipe request for a feature that only exists in a particular Waldo version (when the tag exists)
+
+ifdef::env-github[[source,mermaid]]
+ifndef::env-github[[mermaid]]
+----
+graph TD
+   clone_repo[Clone the code from the existing tag]
+   develop[Develop test cases based on latest tag]
+   validate[Validate the recipes]
+   release[Release as the next subversion for the particular tag]
+   gen_html[Generate html page for EOU]
+   clone_repo --> develop
+   develop --> validate
+   validate --> release
+   release --> gen_html
+----
+
+==== Recipe request for a feature that only exists in a particular Waldo version (when the tag does not exist/ no previous tags exists)
+
+ifdef::env-github[[source,mermaid]]
+ifndef::env-github[[mermaid]]
+----
+graph TD
+   clone_repo[Clone the code from the initial tag]
+   develop[Develop test cases based on the inital tag]
+   validate[Validate the recipes]
+   release[Release as the tag corresponding to Waldo]
+   gen_html[Generate html page for EOU]
+   clone_repo --> develop
+   develop --> validate
+   validate --> release
+   release --> gen_html
+----
+
+==== Recipe request for a feature that only exists in a particular Waldo version (when the tag does not exist/ previous tags exists)
+
+ifdef::env-github[[source,mermaid]]
+ifndef::env-github[[mermaid]]
+----
+graph TD
+   clone_repo[Clone the code from the latest existing tag]
+   develop[Develop test cases based on latest tag]
+   validate[Validate the recipes]
+   release[Release as the tag corresponding to Waldo]
+   gen_html[Generate html page for EOU]
+   clone_repo --> develop
+   develop --> validate
+   validate --> release
+   release --> gen_html
+----
+
+==== Receipe request for a feature that exist in the latest Waldo code
+
+This is a request made by a user who uses an older Waldo feature, but the feature still exists on the latest Waldo code
+
+ifdef::env-github[[source,mermaid]]
+ifndef::env-github[[mermaid]]
+----
+graph TD
+   clone_repo[Clone the latest code from main]
+   feature_branch[Create a feature branch from main]
+   develop[Develop test cases based on latest Waldo code]
+   validate[Validate the recipes]
+   merge[Merge the feature branch to main]
+   point_users[Point the users to the latest code from main]
+   release[Release with next Waldo release]
+   gen_html[Generate html page for EOU]
+   clone_repo --> feature_branch
+   feature_branch --> develop
+   develop --> validate
+   validate --> merge
+   merge --> point_users
+   point_users --> release
+   release --> gen_html
+----
+
+=== Recipe request for the current Waldo version
+
+Request is made for the current Waldo code
+
+ifdef::env-github[[source,mermaid]]
+ifndef::env-github[[mermaid]]
+----
+graph TD
+   clone_repo[Clone the latest code from main]
+   feature_branch[Create a feature branch from main]
+   develop[Develop test cases based on latest Waldo code]
+   validate[Validate the recipes]
+   merge[Merge the feature branch to main]
+   point_users[Point the users to the latest code from main]
+   release[Release with next Waldo release]
+   gen_html[Generate html page for EOU]
+   clone_repo --> feature_branch
+   feature_branch --> develop
+   develop --> validate
+   validate --> merge
+   merge --> point_users
+   point_users --> release
+   release --> gen_html
+----
