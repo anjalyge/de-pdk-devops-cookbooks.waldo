@@ -1,8 +1,1 @@
-arrow==1.2.3
-artifactory==0.1.17
-astroid==2.8.6
-attrs==23.1.0
-bcrypt==4.0.1
-binaryornot==0.4.4
-certifi==2023.7.22
-cffi==1.15.1
+pytest
