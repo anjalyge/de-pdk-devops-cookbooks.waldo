@@ -24,4 +24,5 @@ jobs:
         python -m pip install pytest
         python -m pip install tox
         mkdir -p nblogs
+        tox -e gh_unittest -r
         
