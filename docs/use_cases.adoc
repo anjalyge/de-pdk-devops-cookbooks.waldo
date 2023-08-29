@@ -6,7 +6,7 @@ Anjaly George <anjaly.george@intel.com>
 :source-highlighter: rouge
 :language: en
 
-The document specifies several use cases for Waldo Cookbook System
+The document specifies several use cases for Waldo Cookbook System. The release of code happens in a different flow, this helps in making quicker releases. The tagging follows the following format waldo_release_version+.+version number(eg v0.27.0.1)
 
 
 == New recipes as a part of Waldo code update / Adding new recipes without a customer request
