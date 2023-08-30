@@ -22,7 +22,7 @@ graph TD
    develop[Develop test cases based on latest Waldo code]
    validate[Validate the recipes]
    merge[Merge the feature branch to main]
-   release[Release with next Waldo release]
+   release[Release with next schedule]
    gen_html[Generate html page for EOU]
    clone_repo --> feature_branch
    feature_branch --> develop
@@ -105,7 +105,7 @@ graph TD
    validate[Validate the recipes]
    merge[Merge the feature branch to main]
    point_users[Point the users to the latest code from main]
-   release[Release with next Waldo release]
+   release[Release with next schedule]
    gen_html[Generate html page for EOU]
    clone_repo --> feature_branch
    feature_branch --> develop
@@ -130,7 +130,7 @@ graph TD
    validate[Validate the recipes]
    merge[Merge the feature branch to main]
    point_users[Point the users to the latest code from main]
-   release[Release with next Waldo release]
+   release[Release with next schedule]
    gen_html[Generate html page for EOU]
    clone_repo --> feature_branch
    feature_branch --> develop
